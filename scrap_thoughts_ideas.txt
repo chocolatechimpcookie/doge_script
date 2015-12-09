@@ -1,0 +1,6 @@
+-Seperate codecs from applications
+-Seperate developer tools from applications
+	-Give a choice on what to install, what ide/editor etc?
+	-BUT put komodo and gedit
+-Seperate xfce4 shortcuts from everything else
+-Make it clear that this is for ubuntu and debian
