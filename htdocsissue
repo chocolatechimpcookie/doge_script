@@ -1,0 +1,11 @@
+sudo chown -R username:username /opt/lampp/htdocs
+sudo gedit /opt/lampp/etc/httpd.conf
+
+
+find following lines
+
+User nobody
+Group nogroup
+
+
+Replace nobody with your user name and save the file

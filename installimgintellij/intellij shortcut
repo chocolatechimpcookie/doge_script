@@ -1,0 +1,32 @@
+Become root.
+
+sudo -i
+Move the extracted folder to /opt/idea
+
+mv ideaIC-XX.Y.Z /opt/idea
+Create a desktop file and install it:
+
+gedit idea.desktop
+and copy the following to the idea.desktop file.
+
+[Desktop Entry]
+Name=IntelliJ IDEA 
+Type=Application
+Exec=idea.sh
+Terminal=false
+Icon=idea
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=IntelliJ IDEA
+then execute the following command to automatically install it in the unity:
+
+desktop-file-install idea.desktop
+Create a symlink in /usr/local/bin using
+
+cd /usr/local/bin
+ln -s /opt/idea/bin/idea.sh
+For idea icon to be displayed in dash, idea icon can be added as
+
+cp /opt/idea/bin/idea.png /usr/share/pixmaps/idea.png
+That's it. Now, you can launch IntelliJ from Ubuntu dash.
