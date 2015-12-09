@@ -58,6 +58,7 @@ sudo apt-get -y install xfce-theme-manager
 sudo apt-get -y install numix-gtk-theme
 sudo apt-get -y install numix-icon-theme
 sudo apt-get -y install numix-icon-theme-circle
+sudo apt-get -y install autojump
 #sudo apt-get -y install pepperflashplugin-nonfree
 #Laptop was having issues, I installed this and issue was still not fixed
 

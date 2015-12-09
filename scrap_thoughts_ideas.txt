@@ -4,3 +4,11 @@
 	-BUT put komodo and gedit
 -Seperate xfce4 shortcuts from everything else
 -Make it clear that this is for ubuntu and debian
+
+
+-Need error reporting if any of this fails and to say what fails
+
+-automate mintstick
+
+
+-replace all those if then fi with some sort of case switch style statements

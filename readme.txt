@@ -33,6 +33,7 @@ ________________________________________________________________________________
 
 *Optional software: These software's are seperate from the base install
 	-Spotify
+	-Linux Mint repos and mintstick. This part is not quite automated yet.
 
 
 *Codecs
