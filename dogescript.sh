@@ -95,6 +95,8 @@ sudo dpkg -i google-chrome*; sudo apt-get -f -y install
 
 wget http://www.bluej.org/download/files/bluej-311.deb
 sudo dpkg -i bluej*; sudo apt-get -f -y install
+echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
+#^Appends autojump to get it to work
 }
 
 
@@ -105,21 +107,15 @@ sudo sh -c 'echo "deb http://packages.linuxmint.com/ qiana main" >> /etc/apt/sou
 
 sudo apt-get update
 
-sudo apt-get install linuxmint-keyring
+sudo apt-get install -y --force-yes linuxmint-keyring mintstick
 
-#this is Qiana repo btw, you'll get an error after the update
-#you can't do -y for the keyring
+#this is Qiana repo btw, this won't work only with -y for some reason
 
-sudo apt-get update
-
-#now install w.e
-
-sudo apt-get install -y mintstick
 }
 
 asusn13driver()
 
-#gotta fix this and make it local
+#gotta fix this and make it local so that if it is removed from github, it still works
 {
 echo "You need the internet for this to work"
 

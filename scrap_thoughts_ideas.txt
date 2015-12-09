@@ -10,5 +10,32 @@
 
 -automate mintstick
 
+-auto install xampp to htdocs chown thingy
 
 -replace all those if then fi with some sort of case switch style statements
+
+
+
+
+__________________________________________________________________________________________
+-Need to automatically install auto jump, aside from 
+
+"This will install autojump but to use it you need to configure your shell to
+ source autojump.sh on startup. If you’re use Bash, then add the following line 
+to your ~/.bashrc file. The same line will work for Zsh if you add it to ~/.zshrc."
+
+I can append to the end of a file 
+
+this command to be appended:
+
+. /usr/share/autojump/autojump.sh
+
+
+~/.bashrc . /usr/share/autojump/autojump.sh
+
+
+
+echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
+
+APPENDED!!!!
+WORKS
