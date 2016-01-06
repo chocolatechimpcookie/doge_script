@@ -1,6 +1,91 @@
 #!/bin/bash
 
 
+
+#thunar is default file browser
+#~/.config/openbox/autostart.sh is where the startup script
+#generally /home/cina/.config/
+#or /etc/xdg/openbox/autostart.sh
+
+#to copy stuff
+#sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4-keyboard-shortcuts.xml
+#
+
+#note you need spaces between [ ]
+
+#I am not sure if a case switch will do what I want
+#I want it to be be letters
+#might have to make it a function, and have the data passed
+#function sorts the letters?
+#then it would be a fixed number of options,
+#but that might be a waste of time writing a scenario for each string combination possible
+#There might be a way around that
+#If I have like 15 options for example, I would have to write like 15*15 amount?
+#what if it was a case switch but each switch had a function that would test on
+#whether the letter was inside a string
+
+#actually if else might be better anyway
+#if there is a search function, I can use an if for whatever options there is
+#then it would go through each condition and complete it
+#I would only have to modify the if conditions
+#and have a search function before each choice
+
+#also spit out the users selection first
+#The computer took in "abcd", are you sure?
+#then after each installation print that it was installed.
+
+#also make the options go with the option
+#try to make them all one letter
+
+#test out looper logic for confirmation
+
+
+
+#    #if statements need to be changed to read strings not numbers
+#    #search syntax
+#    #if [[ $c == *sg* ]]; then echo "it worked"; fi
+#    #^this is case sensitive tho
+#    #might be better to use grep so it is case insensitive
+#    #if echo $c | grep -iq z; then echo "it worked"; fi
+#    #^That's case insensitive
+#    #pipes variable into grep
+#    #-i ignores case
+#    #-q does not write anything to output by default
+#    #but will search out of a string?
+#    #yes
+#    #need a way to append to a string that is in each of these statements
+#    #and then print out that long string after all this
+#    # use +=
+#    # x="a"
+#    # x+="b"
+#    # echo $x
+#    # ab
+#    #               *SYNTAX*
+#    #note that declaring variables requires no space
+#    #but if statements do
+#    #you don't need quotations for strings at all, but you can
+#    #you can also put variables inside quotations, as long as you use $
+##    
+#    #how should I print it, new line for each?
+#    #saying installed in each would be annoying
+##    
+#    #           Option names
+#    #If you get too many options, multiples or have issue making option names
+#    #might want to make some stuff case sensitive SO that they know where a phrase starts
+#    #so Sa, As
+#    #Thing is if you make something multi character
+#    #but have a single character option
+#    #then it'll get confused, if you have multiple strings that start
+#    #with a single letter, then make all of them multicharacter
+#    #You also have to watch out for phrases that end or start with certain characters
+#    #for example if you have AS
+#    #You probably shouldn't have SA?
+#    #Maybe keep grep? this way if I want to expand search, it is easier
+##    
+###    
+##echo -e "\e[1;34mThis is a blue text.\e[0m"
+## you need -e for that as well as that code
+
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
 echo 
@@ -46,8 +131,7 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install gedit
-sudo apt-get -y install xubuntu-restricted-extras
-sudo apt-get -y install libavcodec-extra
+
 sudo apt-get -y install idle3
 sudo apt-get -y install wine
 sudo apt-get -y install python3
@@ -63,8 +147,7 @@ sudo apt-get -y install autojump
 #Laptop was having issues, I installed this and issue was still not fixed
 
 
-sudo apt-get install -y libdvdread4
-sudo /usr/share/doc/libdvdread4/install-css.sh
+
 sudo apt-get install -y comix
 sudo apt-get -y install rar
 sudo apt-get -y install vlc
@@ -100,17 +183,14 @@ echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
 }
 
 
+
 linuxmintrepos()
 {
 sudo sh -c 'echo "deb http://packages.linuxmint.com/ qiana main" >> /etc/apt/sources.list.d/mint.list'
-
-
 sudo apt-get update
-
 sudo apt-get install -y --force-yes linuxmint-keyring mintstick
 
-#this is Qiana repo btw, this won't work only with -y for some reason
-
+#gotta test if this works without asking for yes
 }
 
 asusn13driver()
@@ -130,58 +210,18 @@ echo "And reboot. You're done."
 
 }
 
-standardopenbox()
+codecs()
 {
-sudo apt-get install -y openbox tint2 obconf obmenu
-sudo apt-get install -y nitrogen alsamixergui lxappearance
-
-sudo mkdir ~/.config/openbox/
-sudo cp ./backup/menu.xml ~/.config/openbox/
-sudo mkdir ~/.config/tint2/
-sudo cp ./backup/tint2rc ~/.config/tint2/
-sudo cp -r ./backup/tint2wizard ~
-sudo cp ./backup/autostart /etc/xdg/openbox/
-
-#thunar is default file browser
-#~/.config/openbox/autostart.sh is where the startup script
-#generally /home/cina/.config/
-#or /etc/xdg/openbox/autostart.sh
+sudo apt-get -y install xubuntu-restricted-extras
+sudo apt-get -y install libavcodec-extra
+sudo apt-get install -y libdvdread4
+sudo /usr/share/doc/libdvdread4/install-css.sh
 }
 
-xfceopenbox()
-{
-sudo apt-get install -y openbox tint2 obconf obmenu
-sudo apt-get install -y nitrogen alsamixergui lxappearance
-
-sudo mkdir ~/.config/openbox/
-sudo cp ./xfce4panelbackup/menu.xml ~/.config/openbox/
-sudo mkdir ~/.config/tint2/
-sudo cp ./xfce4panelbackup/tint2rc ~/.config/tint2/
-sudo cp -r ./xfce4panelbackup/tint2wizard ~
-sudo cp ./xfce4panelbackup/autostart /etc/xdg/openbox/
-}
-
-backupstandopenbox()
-{
-sudo mkdir ./backup/
-sudo cp ~/.config/openbox/menu.xml ./backup/
-sudo cp ~/.config/tint2/tint2rc ./backup/
-sudo cp -r ~/tint2wizard ./backup/
-sudo cp /etc/xdg/openbox/autostart ./backup/
-}
-
-backupxfc4openbox()
-{
-sudo mkdir ./xfce4panelbackup/
-sudo cp ~/.config/openbox/menu.xml ./xfce4panelbackup/
-sudo cp ~/.config/tint2/tint2rc ./xfce4panelbackup/
-sudo cp -r ~/tint2wizard ./xfce4panelbackup/
-sudo cp /etc/xdg/openbox/autostart ./xfce4panelbackup/
 
 
-}
 
-installinternal()
+installt440()
 {
 cd ./internal/rtlwifi_new-master/
 sudo make
@@ -211,120 +251,71 @@ sudo cp xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 }
 
 
-#to copy stuff
-#sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4-keyboard-shortcuts.xml
-#
 n=1
-#note you need spaces between [ ]
-while [ $n  -eq  1 ]
+while [ $n  -eq  1 ] #this variable n tests whether the user still wants the program to run
 do
-	echo "Type in the corresponding numbers to install the corresponding thingie"
-	echo "Base install = 1"
-	echo "Mintrepos = 2"
-	echo "Asusn13 driver = 3"
-	echo "Internal Laptop Wifi = 4"
-	echo "Install Standard openbox=5"
-	echo "Install Xfceopenbox=6"
-	echo "Backing up standard open box config = 7"
-	echo "Backing up openboxfce = 8"
-	echo "install spotify = 9"
-	echo "Install android studio = 10"
-	echo "Install xfce4 shortcuts = 11"
+	echo -e "Type in a \e[1;34mphrase\e[0m containing each installation element you'd like to install."
+	echo -e "Base install = \e[1;34mBi\e[0m "
+	echo -e "Mint repos = \e[1;34mMr\e[0m"
+	echo -e "Asusn13 driver = \e[1;34mAw\e[0m"
+	echo -e "Internal Laptop Wifi driver for t440 = \e[1;34mLw\e[0m"
+	echo -e "install spotify = \e[1;34mSp\e[0m"
+	echo -e "Install android studio = \e[1;34mAs\e[0m"
+	echo -e "Install xfce4 shortcuts = \e[1;34mXs\e[0m"
 	echo
+    echo "NOTE: These are case sensitive. You can have white space between phrases or not."
+    echo "All phrases start with a capital and end with a lowercase"
 	read choice
-	if [ "$choice" -eq 1 ]
-	then
-	 	baseinstall
-	fi
- 	if [ "$choice" -eq 2 ]
-	then
-  		linuxmintrepos
-	fi
- 	if [ "$choice" -eq 3 ]
-	then
- 		asusn13driver
-	fi
- 	if [ "$choice" -eq 4 ]
-	then
-  		installinternal
-	fi
- 	if [ "$choice" -eq 5 ]
-	then
-  		standardopenbox
-	fi
- 	if [ "$choice" -eq 6 ]
-	then
-  		xfceopenbox
-	fi
- 	if [ "$choice" -eq 7 ]
-	then
-  		backupstandopenbox
-	fi
- 	if [ "$choice" -eq 8 ]
-	then
-  		backupxfc4openbox
-	fi
-	if [ "$choice" -eq 9 ]
-	then
-  		spotify
-	fi
-	if [ "$choice" -eq 10 ]
-	then
-  		androidstudio
-	fi
-
-	if [ "$choice" -eq 11 ]
-	then
-		xfce4shortcuts
-	fi
-
-	echo "You installed: "
- 	if [ "$choice" -eq 1 ]
-	then
-  		echo "baseinstall"
-	fi
- 	if [ "$choice" -eq 2 ]
-	then
-  		echo "linuxmintrepos"
-	fi
- 	if [ "$choice" -eq 3 ]
-	then
-  		echo "asusn13driver"
-	fi
- 	if [ "$choice" -eq 4 ]
-	then
-  		echo "internal laptop"
-	fi
- 	if [ "$choice" -eq 5 ]
-	then
-  		echo "standardopenbox"
-	fi
- 	if [ "$choice" -eq 6 ]
-	then
-  		echo "xfceopenbox"
-	fi
- 	if [ "$choice" -eq 7 ]
-	then
-  		echo "backupstandopenbox"
-	fi
- 	if [ "$choice" -eq 8 ]
-	then
-  		echo "backupxfc4openbox"
-	fi
-	if [ "$choice" -eq 9 ]
-	then
-  		echo "spotify"
-	fi
-	if [ "$choice" -eq 10 ]
-	then
-  		echo "androidstudio"
-	fi
-	if [ "$choice" -eq 11 ]
-	then
-		echo "xfce4 shortcuts"
-	fi
-	echo "If you would like to keep going, type in 1, if not, type in any other number"
-read n
+    echo "You wrote" choice ". Are you sure?"
+    echo "Type y to continue or anything else to restart"
+    read confirm   
+    if [ echo $confirm | grep -q y ]
+    then
+        installed=""
+        #declare it first but empty
+        if [ echo $choice | grep -q Bi ]
+        then
+            baseinstall
+            installed+=" Base install- "
+        fi
+        if [ echo $choice | grep -q Mr ]
+        then
+            linuxmintrepos
+            installed+=" Linux Mint repos- Mintstick, Mintformat- "
+        fi
+        if [ echo $choice | grep -q Aw ]
+        then
+            asusn13driver
+            installed+=" Asusn13 driver- "
+        fi
+        if [ echo $choice | grep -q Lw ]
+        then
+            installt440
+            installed+=" T440 Driver- "
+        fi
+        if [ echo $choice | grep -q Sp ]
+        then
+            spotify
+            installed+=" Spotify- "
+        fi
+        if [ echo $choice | grep -q As ]
+        then
+            androidstudio
+            installed+=" Android Studio- "
+        fi
+        if [ echo $choice | grep -q Xs ]
+        then
+            xfce4shortcuts
+            installed+=" XFCE4 keyboard shortcuts"
+        fi
+        echo "The following software was installed: "
+        echo
+        echo $installed
+        echo "If you would like to keep going, type in 1, if not, type in any other number"
+        read n
+    else
+        echo "Program will restart"
+    fi
 #I'd like to add a list of whatever you instaled here. There's got to be a way to store it.
 done
 

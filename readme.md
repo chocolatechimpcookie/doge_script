@@ -3,6 +3,8 @@ ________________________________________________________________________________
 To run:
 chmod +x dogescript.sh
 ./dogescript.sh
+
+Requires grep and bash as well as an internet connection for some things.
 __________________________________________________________________________________
 
 
@@ -59,7 +61,7 @@ ________________________________________________________________________________
 		-"includes rtl8192ce, rtl8192se, rtl8192de, rtl8188ee, rtl8192ee, rtl8723ae, rtl8723be, and rtl8821ae."
 
 
-
+>>>>>REMOVED Jan 5th
 *Desktop Environments & Tools
 	-Openbox with xfce's panel
 	-Open box with tint2
