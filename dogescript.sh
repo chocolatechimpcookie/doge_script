@@ -156,8 +156,6 @@ sudo apt-get -y install autojump
 #sudo apt-get -y install pepperflashplugin-nonfree
 #Laptop was having issues, I installed this and issue was still not fixed
 
-
-
 sudo apt-get install -y comix
 sudo apt-get -y install rar
 sudo apt-get -y install vlc
@@ -260,6 +258,20 @@ xfce4shortcuts()
 sudo cp xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 }
 
+#an auto backup function would be cool
+
+lampgit()
+{
+sudo apt-get install -y git
+sudo apt-get install apache2 mysql-server php5 libapache2-mod-php5
+sudo /etc/init.d/apache2 restart
+php -r 'echo "\n\nYour PHP installation is working fine.\n\n\n";'
+}
+
+#find a way to make this into the above function, take user input and pass this into that function
+#sudo chown -R username:group /var/www
+#replace username:group with the username:username
+
 
 n=1
 while [ $n  -eq  1 ] #this variable n tests whether the user still wants the program to run
@@ -267,16 +279,19 @@ do
 	echo -e "Type in a \e[1;34mphrase\e[0m containing each installation element you'd like to install."
 	echo -e "Base install = \e[1;34mBi\e[0m "
 	echo -e "Mint repos = \e[1;34mMr\e[0m"
+	echo -e "LAMP and Git = \e[1;34mLa\e[0m"
 	echo -e "Asusn13 driver = \e[1;34mAw\e[0m"
 	echo -e "Internal Laptop Wifi driver for t440 = \e[1;34mLw\e[0m"
-	echo -e "install spotify = \e[1;34mSp\e[0m"
-	echo -e "Install android studio = \e[1;34mAs\e[0m"
-	echo -e "Install xfce4 shortcuts = \e[1;34mXs\e[0m"
+	echo -e "Spotify = \e[1;34mSp\e[0m"
+	echo -e "Android studio = \e[1;34mAs\e[0m"
+	echo -e "Xfce4 shortcuts = \e[1;34mXs\e[0m"
 	echo
     echo "NOTE: These are case sensitive. You can have white space between phrases or not."
     echo "All phrases start with a capital and end with a lowercase"
+    echo "LAMP installation requires the user to setup mysql so, do NOT leave the computer"
+    echo	
 	read choice
-    echo "You wrote" choice ". Are you sure?"
+    echo "You wrote '" $choice "' Are you sure?"
     echo "Type y to continue or anything else to restart"
     read confirm   
     if echo $confirm | grep -q y;
@@ -293,6 +308,11 @@ do
             linuxmintrepos
             installed+=" Linux Mint repos- Mintstick, Mintformat- "
         fi
+	if echo $choice | grep -q La;
+	then
+	    lampgit
+	    installed+=" Lamp & Git installation"
+	fi
         if echo $choice | grep -q Aw;
         then
             asusn13driver
