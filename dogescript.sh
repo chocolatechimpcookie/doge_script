@@ -271,6 +271,10 @@ php -r 'echo "\n\nYour PHP installation is working fine.\n\n\n";'
 #find a way to make this into the above function, take user input and pass this into that function
 #sudo chown -R username:group /var/www
 #replace username:group with the username:username
+#also maybe configurating :
+#  git config --global user.email "you@example.com"
+#  git config --global user.name "Your Name"
+
 
 
 n=1
