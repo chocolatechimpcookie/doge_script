@@ -269,41 +269,41 @@ do
     echo "You wrote" choice ". Are you sure?"
     echo "Type y to continue or anything else to restart"
     read confirm   
-    if [ echo $confirm | grep -q y ]
+    if echo $confirm | grep -q y;
     then
         installed=""
         #declare it first but empty
-        if [ echo $choice | grep -q Bi ]
+        if echo $choice | grep -q Bi;
         then
             baseinstall
             installed+=" Base install- "
         fi
-        if [ echo $choice | grep -q Mr ]
+        if echo $choice | grep -q Mr;
         then
             linuxmintrepos
             installed+=" Linux Mint repos- Mintstick, Mintformat- "
         fi
-        if [ echo $choice | grep -q Aw ]
+        if echo $choice | grep -q Aw;
         then
             asusn13driver
             installed+=" Asusn13 driver- "
         fi
-        if [ echo $choice | grep -q Lw ]
+        if echo $choice | grep -q Lw;
         then
             installt440
             installed+=" T440 Driver- "
         fi
-        if [ echo $choice | grep -q Sp ]
+        if echo $choice | grep -q Sp;
         then
             spotify
             installed+=" Spotify- "
         fi
-        if [ echo $choice | grep -q As ]
+        if echo $choice | grep -q As;
         then
             androidstudio
             installed+=" Android Studio- "
         fi
-        if [ echo $choice | grep -q Xs ]
+        if echo $choice | grep -q Xs;
         then
             xfce4shortcuts
             installed+=" XFCE4 keyboard shortcuts"
