@@ -2,6 +2,16 @@
 
 
 
+#an alternative of searching the user input, see "Why doesn't if [ echo $foo | grep -q bar ] work?"
+#on stack exchange, you can use double brackets
+
+
+
+
+
+
+
+
 #thunar is default file browser
 #~/.config/openbox/autostart.sh is where the startup script
 #generally /home/cina/.config/
