@@ -65,7 +65,7 @@ ________________________________________________________________________________
 *Desktop Environments & Tools
 	-Openbox with xfce's panel
 	-Open box with tint2
-	-A backup of my xfce4 keyboard/hotkey bindings
+
 	
 
 
