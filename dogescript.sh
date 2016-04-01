@@ -62,8 +62,6 @@ sudo apt-get -y install autojump
 #sudo apt-get -y install pepperflashplugin-nonfree
 #Laptop was having issues, I installed this and issue was still not fixed
 
-
-
 sudo apt-get install -y comix
 sudo apt-get -y install rar
 sudo apt-get -y install vlc
@@ -166,11 +164,15 @@ xfce4shortcuts()
 sudo cp xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 }
 
+
 xfce4backup()
 {
 sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4-keyboard-shortcuts.xml
 
 }
+
+#an auto backup function would be cool
+
 
 lampgit()
 {
@@ -183,6 +185,12 @@ php -r 'echo "\n\nYour PHP installation is working fine.\n\n\n";'
 #find a way to make this into the above function, take user input and pass this into that function
 #sudo chown -R username:group /var/www
 #replace username:group with the username:username
+
+#also maybe configurating :
+#  git config --global user.email "you@example.com"
+#  git config --global user.name "Your Name"
+
+
 
 
 n=1
@@ -198,11 +206,15 @@ do
 	echo -e "Install android studio = \e[1;34mAs\e[0m"
 	echo -e "Install xfce4 shortcuts = \e[1;34mXs\e[0m"
 	echo -e "Backup xfce4 shortcuts = \e[1;34mBc\e[0m"
+	echo -e "Spotify = \e[1;34mSp\e[0m"
+	echo -e "Android studio = \e[1;34mAs\e[0m"
 	echo
     echo "NOTE: These are case sensitive. You can have white space between phrases or not."
     echo "All phrases start with a capital and end with a lowercase"
+    echo "LAMP installation requires the user to setup mysql so, do NOT leave the computer"
+    echo	
 	read choice
-    echo "You wrote" choice ". Are you sure?"
+    echo "You wrote '" $choice "' Are you sure?"
     echo "Type y to continue or anything else to restart"
     read confirm   
     if echo $confirm | grep -q y;
