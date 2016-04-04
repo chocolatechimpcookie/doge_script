@@ -1,6 +1,17 @@
 #!/bin/bash
 
+#	IMPROVING
+#installing java should be seperate
+#I'd prefer the app NOT to crash if something does not install
+#I'd prefer it to print anything that did not install
+# This also makes it less ubuntu dependent so I can
+# use it on a more pure Debian environment
+# && creates an if conditional
+# ; runs code regardless
+# newline?
 
+#Test autojump after install, last time there seemed to be a
+# problem but that could've been the setting it was run.
 
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
@@ -58,6 +69,7 @@ sudo apt-get -y install numix-icon-theme
 sudo apt-get -y install numix-icon-theme-circle
 sudo apt-get -y install autojump
 sudo apt-get -y install gedit
+sudo apt-get -y install
 #sudo apt-get -y install pepperflashplugin-nonfree
 #Laptop was having issues, I installed this and issue was still not fixed
 
@@ -92,8 +104,7 @@ sudo dpkg -i google-chrome*; sudo apt-get -f -y install
 wget http://www.bluej.org/download/files/bluej-311.deb
 sudo dpkg -i bluej*; sudo apt-get -f -y install
 echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
-#^Appends autojump to get it to work
-#not sure if this is actually working or if it was just a bug on the last install
+
 }
 
 
