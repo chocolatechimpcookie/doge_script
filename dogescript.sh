@@ -2,100 +2,6 @@
 
 
 
-#an alternative of searching the user input, see "Why doesn't if [ echo $foo | grep -q bar ] work?"
-#on stack exchange, you can use double brackets
-
-
-
-
-
-
-
-
-#thunar is default file browser
-#~/.config/openbox/autostart.sh is where the startup script
-#generally /home/cina/.config/
-#or /etc/xdg/openbox/autostart.sh
-
-#to copy stuff
-#sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4-keyboard-shortcuts.xml
-#
-
-#note you need spaces between [ ]
-
-#I am not sure if a case switch will do what I want
-#I want it to be be letters
-#might have to make it a function, and have the data passed
-#function sorts the letters?
-#then it would be a fixed number of options,
-#but that might be a waste of time writing a scenario for each string combination possible
-#There might be a way around that
-#If I have like 15 options for example, I would have to write like 15*15 amount?
-#what if it was a case switch but each switch had a function that would test on
-#whether the letter was inside a string
-
-#actually if else might be better anyway
-#if there is a search function, I can use an if for whatever options there is
-#then it would go through each condition and complete it
-#I would only have to modify the if conditions
-#and have a search function before each choice
-
-#also spit out the users selection first
-#The computer took in "abcd", are you sure?
-#then after each installation print that it was installed.
-
-#also make the options go with the option
-#try to make them all one letter
-
-#test out looper logic for confirmation
-
-
-
-#    #if statements need to be changed to read strings not numbers
-#    #search syntax
-#    #if [[ $c == *sg* ]]; then echo "it worked"; fi
-#    #^this is case sensitive tho
-#    #might be better to use grep so it is case insensitive
-#    #if echo $c | grep -iq z; then echo "it worked"; fi
-#    #^That's case insensitive
-#    #pipes variable into grep
-#    #-i ignores case
-#    #-q does not write anything to output by default
-#    #but will search out of a string?
-#    #yes
-#    #need a way to append to a string that is in each of these statements
-#    #and then print out that long string after all this
-#    # use +=
-#    # x="a"
-#    # x+="b"
-#    # echo $x
-#    # ab
-#    #               *SYNTAX*
-#    #note that declaring variables requires no space
-#    #but if statements do
-#    #you don't need quotations for strings at all, but you can
-#    #you can also put variables inside quotations, as long as you use $
-##    
-#    #how should I print it, new line for each?
-#    #saying installed in each would be annoying
-##    
-#    #           Option names
-#    #If you get too many options, multiples or have issue making option names
-#    #might want to make some stuff case sensitive SO that they know where a phrase starts
-#    #so Sa, As
-#    #Thing is if you make something multi character
-#    #but have a single character option
-#    #then it'll get confused, if you have multiple strings that start
-#    #with a single letter, then make all of them multicharacter
-#    #You also have to watch out for phrases that end or start with certain characters
-#    #for example if you have AS
-#    #You probably shouldn't have SA?
-#    #Maybe keep grep? this way if I want to expand search, it is easier
-##    
-###    
-##echo -e "\e[1;34mThis is a blue text.\e[0m"
-## you need -e for that as well as that code
-
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
 echo 
@@ -127,7 +33,7 @@ echo dogeislife
 echo
 
 
-#You should also announce what is installed
+
 baseinstall()
 {
 sudo ufw enable
@@ -189,6 +95,7 @@ wget http://www.bluej.org/download/files/bluej-311.deb
 sudo dpkg -i bluej*; sudo apt-get -f -y install
 echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
 #^Appends autojump to get it to work
+#not sure if this is actually working or if it was just a bug on the last install
 }
 
 
@@ -255,11 +162,18 @@ sudo apt-get --force-yes install spotify-client
 
 xfce4shortcuts()
 {
-#sudo cp xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 sudo cp xfce4-keyboard-shortcuts.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 }
 
+
+xfce4backup()
+{
+sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml xfce4-keyboard-shortcuts.xml
+
+}
+
 #an auto backup function would be cool
+
 
 lampgit()
 {
@@ -272,9 +186,11 @@ php -r 'echo "\n\nYour PHP installation is working fine.\n\n\n";'
 #find a way to make this into the above function, take user input and pass this into that function
 #sudo chown -R username:group /var/www
 #replace username:group with the username:username
+
 #also maybe configurating :
 #  git config --global user.email "you@example.com"
 #  git config --global user.name "Your Name"
+
 
 
 
@@ -287,9 +203,12 @@ do
 	echo -e "LAMP and Git = \e[1;34mLa\e[0m"
 	echo -e "Asusn13 driver = \e[1;34mAw\e[0m"
 	echo -e "Internal Laptop Wifi driver for t440 = \e[1;34mLw\e[0m"
+	echo -e "install spotify = \e[1;34mSp\e[0m"
+	echo -e "Install android studio = \e[1;34mAs\e[0m"
+	echo -e "Install xfce4 shortcuts = \e[1;34mXs\e[0m"
+	echo -e "Backup xfce4 shortcuts = \e[1;34mBc\e[0m"
 	echo -e "Spotify = \e[1;34mSp\e[0m"
 	echo -e "Android studio = \e[1;34mAs\e[0m"
-	echo -e "Xfce4 shortcuts = \e[1;34mXs\e[0m"
 	echo
     echo "NOTE: These are case sensitive. You can have white space between phrases or not."
     echo "All phrases start with a capital and end with a lowercase"
@@ -313,11 +232,11 @@ do
             linuxmintrepos
             installed+=" Linux Mint repos- Mintstick, Mintformat- "
         fi
-	if echo $choice | grep -q La;
-	then
-	    lampgit
-	    installed+=" Lamp & Git installation"
-	fi
+		if echo $choice | grep -q La;
+		then
+			lampgit
+			installed+=" Lamp & Git installation"
+		fi
         if echo $choice | grep -q Aw;
         then
             asusn13driver
@@ -338,6 +257,11 @@ do
             androidstudio
             installed+=" Android Studio- "
         fi
+        if echo $choice | grep -q Bc;
+        then
+            xfce4backup
+            installed+=" XFCE4 keyboard backup- "
+        fi
         if echo $choice | grep -q Xs;
         then
             xfce4shortcuts
@@ -351,6 +275,5 @@ do
     else
         echo "Program will restart"
     fi
-#I'd like to add a list of whatever you instaled here. There's got to be a way to store it.
 done
 
