@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+#installing java should be seperate
 
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
@@ -46,8 +46,6 @@ sudo add-apt-repository -y ppa:webupd8team/java
 
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
-sudo apt-get -y install gedit
-
 sudo apt-get -y install idle3
 sudo apt-get -y install wine
 sudo apt-get -y install python3
