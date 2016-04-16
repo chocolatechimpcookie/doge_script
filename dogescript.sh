@@ -1,35 +1,38 @@
 #!/bin/bash
 
-
-
+─────────
+──────────────
+───────────
+           
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
 echo 
 echo
 echo "
-─────────▄──────────────▄
-────────▌▒█───────────▄▀▒▌
-────────▌▒▒▀▄───────▄▀▒▒▒▐
-───────▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
-─────▄▄▀▒▒▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
-───▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀██▀▒▌
-──▐▒▒▒▄▄▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▒▌
-──▌▒▒▐▄█▀▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
-─▐▒▒▒▒▒▒▒▒▒▒▒▌██▀▒▒▒▒▒▒▒▒▀▄▌
-─▌▒▀▄██▄▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
-─▌▀▐▄█▄█▌▄▒▀▒▒▒▒▒▒░░░░░░▒▒▒▐
+         ▄              ▄
+        ▌▒█           ▄▀▒▌
+        ▌▒▒▀▄       ▄▀▒▒▒▐
+       ▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+     ▄▄▀▒▒▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+   ▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀██▀▒▌
+  ▐▒▒▒▄▄▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▒▌
+  ▌▒▒▐▄█▀▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+ ▐▒▒▒▒▒▒▒▒▒▒▒▌██▀▒▒▒▒▒▒▒▒▀▄▌
+ ▌▒▀▄██▄▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
+ ▌▀▐▄█▄█▌▄▒▀▒▒▒▒▒▒░░░░░░▒▒▒▐
 ▐▒▀▐▀▐▀▒▒▄▄▒▄▒▒▒▒▒░░░░░░▒▒▒▒▌
 ▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒░░░░░░▒▒▒▐
-─▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
-─▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐
-──▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▌
-────▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀
-───▐▀▒▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀
-──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀
+ ▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒▒▒░░░░▒▒▒▒▌
+ ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐
+  ▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▌
+   ▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀
+   ▐▀▒▀▄▄▄▄▄▄▀▀▀▒▒▒▒▒▄▄▀
+   ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▀
 "
 echo "Welcome to Cina's Post-install linux script."
 echo dogeislove
 echo dogeislife
+echo this is an old meme
 echo
 
 
@@ -42,12 +45,13 @@ sudo add-apt-repository -y ppa:rebuntu16/other-stuff
 sudo add-apt-repository -y ppa:noobslab/icons
 sudo add-apt-repository -y ppa:ravefinity-project/ppa
 sudo add-apt-repository -y ppa:webupd8team/java
-
+sudo add-apt-repository ppa:satyajit-happy/themes
+#^This is for Orion
 
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install gedit
-
+sudo apt-get -y install orion-gtk-theme
 sudo apt-get -y install idle3
 sudo apt-get -y install wine
 sudo apt-get -y install python3
