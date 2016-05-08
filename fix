@@ -1,0 +1,13 @@
+-take spotify out....probably, there's two of them in the string
+-add gpg keys without pressing enter
+-javainstaller in main staller requires pressing enter, seperate it into elswhere
+in order to make walking away easier
+
+-remove bluej
+
+-"mintstick: Depends udisks but it is not installable"
+
+-pretty sure windows of shortcuts doesn't work, apps are fine tho
+
+You'll want to check shortcuts settings first before replacing it?
+"cannot stat "file" no such file or directory
