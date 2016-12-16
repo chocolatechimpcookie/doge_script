@@ -9,9 +9,11 @@
 # && creates an if conditional
 # ; runs code regardless
 # newline?
-
+#Take out dead repos
+#add komodo and fix lamp
 #Test autojump after install, last time there seemed to be a
 # problem but that could've been the setting it was run.
+
 
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
@@ -55,8 +57,8 @@ sudo add-apt-repository -y ppa:noobslab/icons
 sudo add-apt-repository -y ppa:ravefinity-project/ppa
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository ppa:satyajit-happy/themes
-#^This is for Orion
-
+##^This is for Orion
+#
 sudo apt-get update
 sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install gedit
@@ -102,11 +104,11 @@ fi
 #it actually installs it here
 #note that it installs it indiscriminantly. 
 sudo dpkg -i google-chrome*; sudo apt-get -f -y install
-
-wget http://www.bluej.org/download/files/bluej-311.deb
-sudo dpkg -i bluej*; sudo apt-get -f -y install
 echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
 
+
+#does it revert to where it was before?
+#yes
 }
 
 
@@ -124,16 +126,25 @@ asusn13driver()
 
 #gotta fix this and make it local so that if it is removed from github, it still works
 {
-echo "You need the internet for this to work"
+#echo "You need the internet for this to work"
 
-sudo apt-get install -y linux-headers-generic build-essential dkms
-sudo apt-get install -y git
-git clone https://github.com/pvaret/rtl8192cu-fixes.git
-sudo dkms add ./rtl8192cu-fixes
-sudo dkms install 8192cu/1.9
-sudo depmod -a
-sudo cp ./rtl8192cu-fixes/blacklist-native-rtl8192.conf /etc/modprobe.d/
-echo "And reboot. You're done."
+#sudo apt-get install -y linux-headers-generic build-essential dkms
+#sudo apt-get install -y git
+#git clone https://github.com/pvaret/rtl8192cu-fixes.git
+#sudo dkms add ./rtl8192cu-fixes
+#sudo dkms install 8192cu/1.9
+#sudo depmod -a
+#sudo cp ./rtl8192cu-fixes/blacklist-native-rtl8192.conf /etc/modprobe.d/
+#echo "And reboot. You're done."
+
+#^this doesn't work and takes the network out for some reason
+#below fix is from the same repo but doesn't need the net since its already on there
+#also uses different instructions
+cd ./drivers/rt8192cudriver
+sudo make
+sudo make install
+#cd ..
+#cd ..
 
 }
 
@@ -150,10 +161,13 @@ sudo /usr/share/doc/libdvdread4/install-css.sh
 
 installt440()
 {
-cd ./internal/rtlwifi_new-master/
+#cd ./internal/rtlwifi_new-master/
+#^old one, where was this coming from?
+cd ./drivers/t440_driver/
 sudo make
 sudo make install
-
+#cd ..
+#cd ..
 }
 
 
@@ -184,7 +198,7 @@ sudo cp ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml 
 }
 
 #an auto backup function would be cool
-
+#needs to be updated
 
 lampgit()
 {
