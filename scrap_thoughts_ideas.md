@@ -8,23 +8,25 @@
 
 -Need error reporting if any of this fails and to say what fails
 
--automate mintstick
-
--auto install xampp to htdocs chown thingy
+- auto install xampp to htdocs chown thingy
 
 -replace all those if then fi with some sort of case switch style statements
 
 
+# UI Features
+- Y to continue should be case insensitive
+
+# Apps To Add
 
 
 __________________________________________________________________________________________
--Need to automatically install auto jump, aside from 
+-Need to automatically install auto jump, aside from
 
 "This will install autojump but to use it you need to configure your shell to
- source autojump.sh on startup. If you’re use Bash, then add the following line 
+ source autojump.sh on startup. If you’re use Bash, then add the following line
 to your ~/.bashrc file. The same line will work for Zsh if you add it to ~/.zshrc."
 
-I can append to the end of a file 
+I can append to the end of a file
 
 this command to be appended:
 
@@ -142,4 +144,3 @@ old notes
 ###    
 ##echo -e "\e[1;34mThis is a blue text.\e[0m"
 ## you need -e for that as well as that code
-

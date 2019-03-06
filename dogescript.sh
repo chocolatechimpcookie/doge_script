@@ -17,7 +17,7 @@
 
 clear
 echo Hello. Hola. Bonjour. Salam Aleikum. Shalom Alekum.
-echo 
+echo
 echo
 echo "
          ▄              ▄
@@ -51,8 +51,8 @@ echo
 baseinstall()
 {
 sudo ufw enable
-sudo add-apt-repository -y ppa:numix/ppa
-sudo add-apt-repository -y ppa:rebuntu16/other-stuff 
+
+
 sudo add-apt-repository -y ppa:noobslab/icons
 sudo add-apt-repository -y ppa:ravefinity-project/ppa
 sudo add-apt-repository -y ppa:webupd8team/java
@@ -60,27 +60,23 @@ sudo add-apt-repository ppa:satyajit-happy/themes
 ##^This is for Orion
 #
 sudo apt-get update
-sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install gedit
 sudo apt-get -y install orion-gtk-theme
 sudo apt-get -y install idle3
-sudo apt-get -y install wine
 sudo apt-get -y install python3
 sudo apt-get -y install openjdk-7-jdk
 sudo apt-get -y install icedtea-7-plugin
 sudo apt-get -y install openjdk-7-jre
-sudo apt-get -y install xfce-theme-manager
-sudo apt-get -y install numix-gtk-theme
-sudo apt-get -y install numix-icon-theme
-sudo apt-get -y install numix-icon-theme-circle
+
+
 sudo apt-get -y install autojump
 sudo apt-get -y install gedit
 sudo apt-get -y install kolourpaint
 
 sudo apt-get install -y comix
-sudo apt-get -y install rar
-sudo apt-get -y install vlc
-sudo apt-get -y install higan
+sudo apt-get install -y rar
+sudo apt-get install -y  vlc
+sudo apt-get install -y  higan
 sudo apt-get install -y pulseaudio-module-bluetooth
 sudo apt-get install -y vibrancy-colors
 sudo apt-get install -y exaile
@@ -102,13 +98,33 @@ else wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.d
 fi
 
 #it actually installs it here
-#note that it installs it indiscriminantly. 
+#note that it installs it indiscriminantly.
 sudo dpkg -i google-chrome*; sudo apt-get -f -y install
 echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
 
 
 #does it revert to where it was before?
 #yes
+}
+
+
+xfce_theme_manager()
+{
+  sudo add-apt-repository -y ppa:rebuntu16/other-stuff
+  sudo apt-get -y install xfce-theme-manager
+}
+
+java()
+{
+sudo apt-get -y install oracle-java8-installer
+}
+
+numix()
+{
+  sudo add-apt-repository -y ppa:numix/ppa
+  sudo apt-get -y install numix-gtk-theme
+  sudo apt-get -y install numix-icon-theme
+  sudo apt-get -y install numix-icon-theme-circle
 }
 
 
@@ -179,9 +195,9 @@ sudo apt-get install -y android-studio
 
 spotify()
 {
-sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" && 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59 && 
-sudo apt-get update -qq && 
+sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &&
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59 &&
+sudo apt-get update -qq &&
 sudo apt-get --force-yes install spotify-client
 }
 
@@ -238,11 +254,11 @@ do
     echo "NOTE: These are case sensitive. You can have white space between phrases or not."
     echo "All phrases start with a capital and end with a lowercase"
     echo "LAMP installation requires the user to setup mysql so, do NOT leave the computer"
-    echo	
+    echo
 	read choice
     echo "You wrote '" $choice "' Are you sure?"
     echo "Type y to continue or anything else to restart"
-    read confirm   
+    read confirm
     if echo $confirm | grep -q y;
     then
         installed=""
@@ -301,4 +317,3 @@ do
         echo "Program will restart"
     fi
 done
-
