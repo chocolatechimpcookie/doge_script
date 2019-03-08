@@ -54,8 +54,7 @@ sudo ufw enable
 
 
 sudo add-apt-repository -y ppa:noobslab/icons
-sudo add-apt-repository -y ppa:ravefinity-project/ppa
-sudo add-apt-repository -y ppa:webupd8team/java
+
 sudo add-apt-repository ppa:satyajit-happy/themes
 ##^This is for Orion
 #
@@ -64,22 +63,19 @@ sudo apt-get -y install gedit
 sudo apt-get -y install orion-gtk-theme
 sudo apt-get -y install idle3
 sudo apt-get -y install python3
-sudo apt-get -y install openjdk-7-jdk
-sudo apt-get -y install icedtea-7-plugin
-sudo apt-get -y install openjdk-7-jre
+
 
 
 sudo apt-get -y install autojump
-sudo apt-get -y install gedit
 sudo apt-get -y install kolourpaint
 
 sudo apt-get install -y comix
 sudo apt-get install -y rar
-sudo apt-get install -y  vlc
-sudo apt-get install -y  higan
+sudo apt-get install -y vlc
+sudo apt-get install -y higan
 sudo apt-get install -y pulseaudio-module-bluetooth
-sudo apt-get install -y vibrancy-colors
 sudo apt-get install -y exaile
+
 sudo apt-get -y remove thunderbird banshee pidgin gmusicbrowser parole mousepad
 
 
@@ -108,24 +104,35 @@ echo ". /usr/share/autojump/autojump.sh" >> ~/.bashrc
 }
 
 
+
 xfce_theme_manager()
 {
-  sudo add-apt-repository -y ppa:rebuntu16/other-stuff
-  sudo apt-get -y install xfce-theme-manager
+sudo add-apt-repository -y ppa:rebuntu16/other-stuff
+sudo apt-get -y install xfce-theme-manager
 }
 
 java()
 {
+sudo apt-get -y install openjdk-7-jdk
+sudo apt-get -y install icedtea-7-plugin
+sudo apt-get -y install openjdk-7-jre
+sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get -y install oracle-java8-installer
 }
 
-numix()
+themes()
 {
-  sudo add-apt-repository -y ppa:numix/ppa
-  sudo apt-get -y install numix-gtk-theme
-  sudo apt-get -y install numix-icon-theme
-  sudo apt-get -y install numix-icon-theme-circle
+# numix
+sudo add-apt-repository -y ppa:numix/ppa
+sudo apt-get -y install numix-gtk-theme
+sudo apt-get -y install numix-icon-theme
+sudo apt-get -y install numix-icon-theme-circle
+
+# vibrancy
+sudo add-apt-repository -y ppa:ravefinity-project/ppa
+sudo apt-get install -y vibrancy-colors
 }
+
 
 
 
